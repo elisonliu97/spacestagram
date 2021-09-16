@@ -3,16 +3,19 @@ import imgs from '../../assets';
 import './card.css';
 
 function Card(props) {
-
+    // state to keep track of liked status
     const [liked, setLiked] = useState(false)
 
+    // on load, check if already liked
     useEffect(() => {
         if (props.likes.includes(props.item.date)) {
             setLiked(true)
         }
     },[])
 
+    // function to differentiate between images and videos
     function mediaType(props) {
+        // image
         if (props.item.media_type === "image") {
             return (
                 <img
@@ -22,6 +25,7 @@ function Card(props) {
                 />
             )
         }
+        // video
         else if (props.item.media_type === "video") {
             return (
                 <div className="outer">
@@ -39,11 +43,13 @@ function Card(props) {
         }
     }
 
+    // function to save url to clipboard
     function saveToClipboard(event) {
         navigator.clipboard.writeText(props.item.url);
         clipboardAnimation(event.target)
     }
 
+    // function to like
     function likeFunction(event) {
         localStorage.setItem(props.item.date, props.item.title)
         props.changeLikesState((likes) => [...likes, props.item.date])
@@ -51,6 +57,7 @@ function Card(props) {
         heartAnimation(event.target)
     }
     
+    // function to unlike
     function unlikeFunction() {
         localStorage.removeItem(props.item.date)
         props.changeLikesState(props.likes.filter((el) => {
@@ -59,22 +66,26 @@ function Card(props) {
         setLiked(false)
     }
 
+    // function to create heart animation
     function heartAnimation(target) {
         let heart = document.createElement('img')
         heart.className = 'heart-img'
         heart.src = imgs.heart
         target.parentElement.appendChild(heart)
+        // remove heart after 1s
         setTimeout(()=>{
             let heart = document.querySelector('.heart-img')
             heart.remove();
         }, 1000)
     }
 
+    // function to create clipbaord animation
     function clipboardAnimation(target) {
         let clipboard = document.createElement('img')
         clipboard.className = 'clipboard-img'
         clipboard.src = imgs.clipboard
         target.parentElement.appendChild(clipboard)
+        // remove clipboard after 1s
         setTimeout(()=>{
             let clipboard = document.querySelector('.clipboard-img')
             clipboard.remove();
@@ -97,9 +108,6 @@ function Card(props) {
                 </div>
         </div>
     )
-
-
-
 };
 
 export default Card;

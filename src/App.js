@@ -7,10 +7,14 @@ import imgs from './assets';
 
 function App() {
 
+  // state to keep track of data
   const [apiData, setApiData] = useState([])
+  // state to check if data is still being fetched
   const [loading, setLoading] = useState(false)
+  // state to keep track of all likes
   const [likes, setLikes] = useState([])
 
+  // on load, get all likes from localstorage and make initial fetch request
   useEffect(() => {
     let likeArr = [];
     for (let i = 0; i < localStorage.length; i++) {
@@ -21,23 +25,28 @@ function App() {
     getPictures();
   }, [])
 
+  // API URL
   let apiURL = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}&count=15`
 
+  // function to allow for pagination
   function applyEventListener() {
     const scrolling_function = () => {
+      // if at bottom of the screen
       if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 10) {
+        // remove event listener to make sure it only runs once
         window.removeEventListener('scroll', scrolling_function)
         getPictures();
       }
     }
+    // after done loading, add back event listener
     if (!loading) {
       window.addEventListener('scroll', scrolling_function);
     }
   }
 
+  // function to fetch from API
   async function getPictures() {
     setLoading(true)
-    console.log('here')
     try {
       const response = await fetch(apiURL);
 
@@ -56,6 +65,7 @@ function App() {
     }
   }
 
+  // amount of columns depending on screen size
   const breakpointColumnsObj = {
     default: 3,
     1400: 2,
