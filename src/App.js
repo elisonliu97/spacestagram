@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     let likeArr = [];
     for (let i = 0; i < localStorage.length; i++) {
-      likeArr.push(localStorage.key[i])
+      likeArr.push(localStorage.key(i))
     }
 
     setLikes(likeArr)
@@ -23,8 +23,7 @@ function App() {
 
   function applyEventListener() {
     const scrolling_function = () => {
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-        console.log("fetching more.........")
+      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 10) {
         window.removeEventListener('scroll', scrolling_function)
         getPictures();
       }
@@ -45,9 +44,7 @@ function App() {
       }
 
       const items = await response.json();
-      const newApiData = [...apiData, ...items]
       setLoading(false)
-      console.log(newApiData)
       setApiData(apiData => [...apiData, ...items])
       applyEventListener()
 
@@ -63,8 +60,15 @@ function App() {
     800: 1
   }
 
+  function checkStates() {
+    console.log(apiData)
+    console.log(loading)
+    console.log(likes)
+  }
+
   return (
     <div className="App">
+          <button onClick={() => checkStates()}>Check</button>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="card-container"
@@ -72,17 +76,15 @@ function App() {
       >
         {apiData.map((item) => {
           return (
-            <Card key={item.date} item={item} likes={likes} />
+            <Card key={item.date} item={item} likes={likes} changeLikesState={setLikes} />
           )
         })}
-
-
+      </Masonry>
       {(loading ?
         <div>Loading</div>
         :
         null
       )}
-            </Masonry>
     </div>
   );
 }

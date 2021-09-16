@@ -1,25 +1,33 @@
-
+import { useState, useEffect } from 'react';
 import './card.css';
 
-function Card(prop) {
+function Card(props) {
 
-    function mediaType(prop) {
-        if (prop.item.media_type === "image") {
+    const [liked, setLiked] = useState(false)
+
+    useEffect(() => {
+        if (props.likes.includes(props.item.date)) {
+            setLiked(true)
+        }
+    },[])
+
+    function mediaType(props) {
+        if (props.item.media_type === "image") {
             return (
                 <img
                     className="card-media"
-                    src={prop.item.url}
-                    alt={prop.item.title}
+                    src={props.item.url}
+                    alt={props.item.title}
                 />
             )
         }
-        else if (prop.item.media_type === "video") {
+        else if (props.item.media_type === "video") {
             return (
                 <div className="outer">
                     <div className="inner">
                         <iframe
-                            src={prop.item.url}
-                            title={prop.item.title}
+                            src={props.item.url}
+                            title={props.item.title}
                             allowFullScreen="allowFullScreen"
                             frameBorder='0'
                         />
@@ -31,22 +39,36 @@ function Card(prop) {
     }
 
     function saveToClipboard() {
-        navigator.clipboard.writeText(prop.item.url);
+        navigator.clipboard.writeText(props.item.url);
         alert("Copied Link")
     }
 
     function likeFunction() {
-        localStorage.setItem(prop.item.date, prop.item.title)
+        localStorage.setItem(props.item.date, props.item.title)
+        props.changeLikesState((likes) => [...likes, props.item.date])
+        setLiked(true)
+    }
+    
+    function unlikeFunction() {
+        localStorage.removeItem(props.item.date)
+        props.changeLikesState(props.likes.filter((el) => {
+            return (el !== props.item.date)
+        }))
+        setLiked(false)
     }
 
     return (
         <div className="card-div">
-            {mediaType(prop)}
+            {mediaType(props)}
                 <div className="card-text">
-                    <p>{prop.item.title}</p>
-                    <p>{prop.item.date}</p>
-                    <p>{prop.item.explanation}</p>
+                    <p>{props.item.title}</p>
+                    <p>{props.item.date}</p>
+                    <p>{props.item.explanation}</p>
+                    {liked ? 
+                    <button onClick={() => unlikeFunction()}>Unlike</button>
+                    :
                     <button onClick={() => likeFunction()}>Like</button>
+                    }
                     <button onClick={() => saveToClipboard()}>Share</button>
                 </div>
         </div>
