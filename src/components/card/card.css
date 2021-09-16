@@ -1,5 +1,6 @@
 .card-div {
     background-color: grey;
+    position:relative;
 }
 
 .card-media {
@@ -32,4 +33,24 @@
 }
 .card-text p {
     margin: 0;
+}
+
+.heart-img {
+    position: absolute;
+    bottom:1em;
+    left:2em;
+    height:3em;
+    animation:rising-heart 1s infinite;
+    transition: all 1s ease;
+}
+
+@keyframes rising-heart {
+    from {
+        transform: translate(0,0);
+        opacity: 1;
+    }
+    to {
+        transform: translate(0, -100px);
+        opacity: 0;
+    }
 }

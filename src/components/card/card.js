@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import imgs from '../../assets';
 import './card.css';
 
 function Card(props) {
@@ -42,10 +43,11 @@ function Card(props) {
         navigator.clipboard.writeText(props.item.url);
     }
 
-    function likeFunction() {
+    function likeFunction(event) {
         localStorage.setItem(props.item.date, props.item.title)
         props.changeLikesState((likes) => [...likes, props.item.date])
         setLiked(true)
+        heartAnimation(event.target)
     }
     
     function unlikeFunction() {
@@ -54,6 +56,18 @@ function Card(props) {
             return (el !== props.item.date)
         }))
         setLiked(false)
+    }
+
+    function heartAnimation(target) {
+        console.log(target)
+        let heart = document.createElement('img')
+        heart.className = 'heart-img'
+        heart.src = imgs.heart
+        target.parentElement.appendChild(heart)
+        setTimeout(()=>{
+            let heart = document.querySelector('.heart-img')
+            heart.remove();
+        }, 1000)
     }
 
     return (
@@ -66,7 +80,7 @@ function Card(props) {
                     {liked ? 
                     <button onClick={() => unlikeFunction()}>Unlike</button>
                     :
-                    <button onClick={() => likeFunction()}>Like</button>
+                    <button onClick={(event) => likeFunction(event)}>Like</button>
                     }
                     <button onClick={() => saveToClipboard()}>Share</button>
                 </div>
