@@ -35,6 +35,7 @@ function Card(prop) {
             {mediaType(prop)}
                 <div className="card-text">
                     <p>{prop.item.title}</p>
+                    <p>{prop.item.date}</p>
                     <p>{prop.item.explanation}</p>
                 </div>
         </div>
