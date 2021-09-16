@@ -39,8 +39,9 @@ function Card(props) {
         }
     }
 
-    function saveToClipboard() {
+    function saveToClipboard(event) {
         navigator.clipboard.writeText(props.item.url);
+        clipboardAnimation(event.target)
     }
 
     function likeFunction(event) {
@@ -59,7 +60,6 @@ function Card(props) {
     }
 
     function heartAnimation(target) {
-        console.log(target)
         let heart = document.createElement('img')
         heart.className = 'heart-img'
         heart.src = imgs.heart
@@ -67,6 +67,17 @@ function Card(props) {
         setTimeout(()=>{
             let heart = document.querySelector('.heart-img')
             heart.remove();
+        }, 1000)
+    }
+
+    function clipboardAnimation(target) {
+        let clipboard = document.createElement('img')
+        clipboard.className = 'clipboard-img'
+        clipboard.src = imgs.clipboard
+        target.parentElement.appendChild(clipboard)
+        setTimeout(()=>{
+            let clipboard = document.querySelector('.clipboard-img')
+            clipboard.remove();
         }, 1000)
     }
 
@@ -82,7 +93,7 @@ function Card(props) {
                     :
                     <button onClick={(event) => likeFunction(event)}>Like</button>
                     }
-                    <button onClick={() => saveToClipboard()}>Share</button>
+                    <button className="share-btn" onClick={(event) => saveToClipboard(event)}>Share</button>
                 </div>
         </div>
     )

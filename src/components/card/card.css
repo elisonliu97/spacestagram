@@ -40,11 +40,25 @@
     bottom:1em;
     left:2em;
     height:3em;
-    animation:rising-heart 1s infinite;
+    animation:rising 1s infinite;
     transition: all 1s ease;
 }
 
-@keyframes rising-heart {
+.share-btn {
+    float:right;
+}
+
+.clipboard-img {
+    position: absolute;
+    bottom:1em;
+    right:2em;
+    height:3em;
+    animation:rising 1s infinite;
+    transition: all 1s ease;
+}
+
+
+@keyframes rising {
     from {
         transform: translate(0,0);
         opacity: 1;
