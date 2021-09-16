@@ -84,14 +84,14 @@ function Card(props) {
     return (
         <div className="card-div">
             {mediaType(props)}
-                <div className="card-text">
-                    <p>{props.item.title}</p>
-                    <p>{props.item.date}</p>
-                    <p>{props.item.explanation}</p>
+                <div className="card-body">
+                    <p className="card-title">{props.item.title}</p>
+                    <p className="card-date">{props.item.date}</p>
+                    <p className="card-text">{props.item.explanation}</p>
                     {liked ? 
-                    <button onClick={() => unlikeFunction()}>Unlike</button>
+                    <button className="unlike-btn" onClick={() => unlikeFunction()}>Unlike</button>
                     :
-                    <button onClick={(event) => likeFunction(event)}>Like</button>
+                    <button className="like-btn" onClick={(event) => likeFunction(event)}>Like</button>
                     }
                     <button className="share-btn" onClick={(event) => saveToClipboard(event)}>Share</button>
                 </div>

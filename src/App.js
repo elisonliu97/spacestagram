@@ -62,17 +62,9 @@ function App() {
     800: 1
   }
 
-  // function checkStates() {
-  //   console.log(apiData)
-  //   console.log(loading)
-  //   console.log(likes)
-  // }
-
   return (
     <div className="App">
       <Header />
-
-      {/* <button onClick={() => checkStates()}>Check</button>` */}
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="card-container"
@@ -88,7 +80,6 @@ function App() {
         <div className="loader-container">
           <img className="loader-img" src={imgs.rocket} alt="rocket-loader"></img>
         </div>
-
         :
         null
       )}

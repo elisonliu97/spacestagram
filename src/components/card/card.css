@@ -1,6 +1,7 @@
 .card-div {
-    background-color: grey;
+    background-color: #ffffffa8;
     position:relative;
+    transition: all 1s ease;
 }
 
 .card-media {
@@ -27,12 +28,17 @@
     height: 100%;
 }
 
-.card-text {
+.card-body {
     margin-bottom: 1.5em;
     padding: 1em;
 }
-.card-text p {
+.card-body p {
     margin: 0;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .heart-img {
@@ -68,3 +74,4 @@
         opacity: 0;
     }
 }
+
