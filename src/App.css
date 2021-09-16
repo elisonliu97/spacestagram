@@ -1,17 +1,51 @@
 body {
-  padding: 2em;
+  background-color: black !important;
+  background-image: url(./assets/twinkling.png), url(./assets/stars.png) !important;
+  background-repeat: repeat, repeat;
+  background-position-x: center, center;
+  background-position-y: top, top;
+  animation: twinkle 200s linear infinite;
+}
+
+@keyframes twinkle {
+  100% {
+    background-position: -5000px 100%, 3000px 5000px;
+  }
 }
 
 .card-container {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
-  margin-left: -30px; /* gutter size offset */
+  margin: 0em 2em;
   width: auto;
   justify-content: center;
 }
 
-.my-masonry-grid_column {
-  padding-left: 30px; /* gutter size */
+.masonry-grid-column {
+  padding: 0em 1em;
   background-clip: padding-box;
+}
+
+.loader-container{
+height: 10em;
+text-align: center;
+}
+
+.loader-img{
+  position:absolute;
+  left:47%;
+  height:2em;
+  animation:infinite-spinning 2s infinite;
+  animation-timing-function:linear;
+  transform-origin:100% 200%;
+}
+
+@keyframes infinite-spinning {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
 }

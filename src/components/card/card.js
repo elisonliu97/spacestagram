@@ -40,7 +40,6 @@ function Card(props) {
 
     function saveToClipboard() {
         navigator.clipboard.writeText(props.item.url);
-        alert("Copied Link")
     }
 
     function likeFunction() {

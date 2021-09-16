@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import Card from './components/card/card';
+import Header from './components/header/header';
 import Masonry from 'react-masonry-css';
 import './App.css';
+import imgs from './assets';
 
 function App() {
 
@@ -60,19 +62,21 @@ function App() {
     800: 1
   }
 
-  function checkStates() {
-    console.log(apiData)
-    console.log(loading)
-    console.log(likes)
-  }
+  // function checkStates() {
+  //   console.log(apiData)
+  //   console.log(loading)
+  //   console.log(likes)
+  // }
 
   return (
     <div className="App">
-          <button onClick={() => checkStates()}>Check</button>
+      <Header />
+
+      {/* <button onClick={() => checkStates()}>Check</button>` */}
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="card-container"
-        columnClassName="my-masonry-grid_column"
+        columnClassName="masonry-grid-column"
       >
         {apiData.map((item) => {
           return (
@@ -81,7 +85,10 @@ function App() {
         })}
       </Masonry>
       {(loading ?
-        <div>Loading</div>
+        <div className="loader-container">
+          <img className="loader-img" src={imgs.rocket} alt="rocket-loader"></img>
+        </div>
+
         :
         null
       )}
