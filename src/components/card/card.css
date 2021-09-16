@@ -1,0 +1,35 @@
+.card-div {
+    background-color: grey;
+}
+
+.card-media {
+    width: 100%;
+}
+
+.outer {
+    width: 100%;
+    height: 100%;
+}
+
+.inner {
+    
+    position: relative;
+    height: 0px;
+    padding-bottom: 56.25%;
+}
+
+.inner iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card-text {
+    margin-bottom: 1.5em;
+    padding: 1em;
+}
+.card-text p {
+    margin: 0;
+}

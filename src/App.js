@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import Card from './components/card'
+import Card from './components/card/card';
+import Masonry from 'react-masonry-css';
 import './App.css';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     getPictures();
   }, []);
 
-  const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}&count=5`
+  const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}&start_date=2021-08-26&end_date=2021-09-05`
 
   async function getPictures() {
     try {
@@ -27,8 +28,14 @@ function App() {
       console.log(items)
 
     } catch (err) {
-
+      console.error(err)
     }
+  }
+
+  const breakpointColumnsObj = {
+    default: 3,
+    1400: 2,
+    800: 1
   }
 
 
@@ -36,15 +43,19 @@ function App() {
     <div className="App">
       {(loading ?
 
-        <div>
+        <Masonry 
+        breakpointCols={breakpointColumnsObj}
+        className="card-container"
+        columnClassName="my-masonry-grid_column"
+        >
           {apiData.map((item) => {
             return (
               <Card key={item.title} item={item} />
             )
           })}
-        </div>
+        </Masonry>
         :
-        <div>Finished Load</div>
+        <div>LOADING</div>
       )}
     </div>
   );
