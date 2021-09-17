@@ -29,7 +29,9 @@
   If the user wants to run this application locally, follow the instructions above. The default address will be localhost:3000/
   
   ## Screenshots
+  ### Web Page 
   ![spacestagram](https://github.com/elisonliu97/spacestagram/blob/main/readme-assets/spacestagram.png) <br />
+  ### Mobile
   ![spacestagram-mobile](https://github.com/elisonliu97/spacestagram/blob/main/readme-assets/spacestagram-mobile.png)
   ## License
   [MIT](https://spdx.org/licenses/MIT.html)
