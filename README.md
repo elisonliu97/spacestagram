@@ -8,7 +8,7 @@
   - Saved Likes
   - Infinite Scrolling
   - Copy Media URL to Clipboard
-  - Animated Buttons
+  - Animated Like and Share Buttons
   - Loading Animation
 
   ## Table of Contents
@@ -19,7 +19,8 @@
 
   ## Installation
   To run this application locally, clone this repository and install the dependencies using
-  `npm install`
+  `npm install` <br />
+  Create a .env file and add an api key with the name REACT_APP_NASA_API_KEY. <br />
   After installing the dependencies, you can run the application through the command:
   `npm start`
   
