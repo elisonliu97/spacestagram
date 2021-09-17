@@ -100,11 +100,11 @@ function Card(props) {
                     <p className="card-date">{props.item.date}</p>
                     <p className="card-text">{props.item.explanation}</p>
                     {liked ? 
-                    <button className="unlike-btn" onClick={() => unlikeFunction()}>Unlike</button>
+                    <button className="unlike-btn btn" onClick={() => unlikeFunction()}>Unlike</button>
                     :
-                    <button className="like-btn" onClick={(event) => likeFunction(event)}>Like</button>
+                    <button className="like-btn btn" onClick={(event) => likeFunction(event)}>Like</button>
                     }
-                    <button className="share-btn" onClick={(event) => saveToClipboard(event)}>Share</button>
+                    <button className="share-btn btn" onClick={(event) => saveToClipboard(event)}>Share</button>
                 </div>
         </div>
     )

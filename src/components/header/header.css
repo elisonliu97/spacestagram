@@ -6,3 +6,13 @@
     color: White;
     margin-bottom: 1em;
 }
+
+.header-title {
+    font-weight: 500;
+}
+
+.title-font {
+    color: #7da8e9a8;
+    font-weight: 700;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

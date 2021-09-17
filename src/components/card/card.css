@@ -2,6 +2,7 @@
     background-color: #ffffffa8;
     position:relative;
     transition: all 1s ease;
+    border-radius: 20px;
 }
 
 .card-media {
@@ -32,13 +33,19 @@
     margin-bottom: 1.5em;
     padding: 1em;
 }
-.card-body p {
-    margin: 0;
-}
 
 .card-title {
     font-size: 1.2rem;
     font-weight: 600;
+    margin:0;
+}
+
+.card-date {
+    margin: 10px 0;
+}
+
+.card-text {
+    margin: 10px 0;
 }
 
 .heart-img {
@@ -50,6 +57,10 @@
     transition: all 1s ease;
 }
 
+.btn {
+    padding: 5px;
+}
+
 .share-btn {
     float:right;
 }
@@ -59,8 +70,8 @@
     bottom:1em;
     right:2em;
     height:3em;
-    animation:rising 1s infinite;
-    transition: all 1s ease;
+    animation:rising 2s infinite;
+    transition: all 2s ease;
 }
 
 
