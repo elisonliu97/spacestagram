@@ -12,10 +12,18 @@
   - Loading Animation
 
   ## Table of Contents
+  - [Tools and Technologies](#tools-and-technologies)
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
   - [Contact me](#questions)
+
+  ## Tools and Technologies
+  - HTML/CSS
+  - Javascript
+  - ReactJS
+  - React Masonry CSS
+  - NASA's APOD API
 
   ## Installation
   To run this application locally, clone this repository and install the dependencies using
