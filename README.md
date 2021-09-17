@@ -28,9 +28,9 @@
   To use the application, go to the deployed link: (https://spacestagram-el.herokuapp.com/).
   If the user wants to run this application locally, follow the instructions above. The default address will be localhost:3000/
   
-  - [Deployed Application](https://book-search-engine-el.herokuapp.com//)
-
-
+  ## Screenshots
+  ![spacestagram](https://github.com/elisonliu97/spacestagram/blob/main/readme-assets/spacestagram.png) <br />
+  ![spacestagram-mobile](https://github.com/elisonliu97/spacestagram/blob/main/readme-assets/spacestagram-mobile.png)
   ## License
   [MIT](https://spdx.org/licenses/MIT.html)
   ![License Badge](https://img.shields.io/badge/license-MIT-9cf)
