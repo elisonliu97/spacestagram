@@ -11,6 +11,13 @@
     font-weight: 500;
 }
 
+.header-icon {
+    display:inline-block;
+    position:relative;
+    height:1.2em;
+    bottom:-10px;
+}
+
 .title-font {
     color: #7da8e9a8;
     font-weight: 700;
